@@ -473,8 +473,21 @@
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap:clamp(12px, 1.5vw, 20px);
+      gap:clamp(8px, 1.5vw, 20px);
       min-height:clamp(60px, 6vw, 92px);
+      flex-wrap:nowrap;
+    }
+
+    .nav .brand{
+      flex:1 1 auto;
+      min-width:0;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+
+    .nav > .btn{
+      flex:0 0 auto;
+      max-width:55%;
     }
 
     .brand{
@@ -2086,7 +2099,6 @@
     .education{
       position:relative;
       margin-top:clamp(42px, 5vw, 78px);
-      overflow:hidden;
     }
 
     .education-title{
@@ -2156,8 +2168,8 @@
 
     .big-ben{
       position:absolute;
-      right:-10px;
-      bottom:-10px;
+      right:0;
+      bottom:0;
       width:190px;
       height:350px;
       opacity:.22;
@@ -2489,6 +2501,10 @@
       .lessons-grid{grid-template-columns:1fr}
 
       .portrait-frame{max-width:380px}
+      .seal{
+        right:max(10px, calc(50% - 175px));
+        bottom:30px;
+      }
       .mentor-note{
         position:static;
         display:block;
@@ -2496,21 +2512,19 @@
         transform:none;
         text-align:center;
       }
-      .seal{
-        bottom:20px;
-        right:8px;
-      }
 
       .center-title{margin-top:clamp(32px, 6vw, 52px)}
       .center-title::before, .center-title::after{opacity:.5}
 
       .vpack-left, .vpack-center, .vpack-right{padding:16px 18px}
+      /* POPULAR на мобилке - в самом верху над всем по центру */
+      .vpack.featured{
+        padding-top:34px;
+      }
       .vpack.featured::before{
         font-size:9px; letter-spacing:2px;
-        padding:5px 10px; top:12px; right:auto; left:12px;
-      }
-      .vpack.featured .vpack-left{
-        flex-direction:row-reverse;
+        padding:5px 12px; top:8px; right:auto; left:50%;
+        transform:translateX(-50%);
       }
 
       .cta-inner{grid-template-columns:1fr}
@@ -2536,7 +2550,7 @@
     /* === ≤480px === */
     @media (max-width: 480px){
       .portrait-frame{max-width:320px}
-      .big-ben{display:none}
+      .big-ben{width:90px; height:170px; opacity:.15}
     }
 
     /* === ≤360px === */
