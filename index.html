@@ -12,7 +12,6 @@
   <script>
     // document.documentElement.classList.add('anim-on');
   </script>
-
   <style>
     @font-face{
       font-family:'Chups';
@@ -42,7 +41,11 @@
     }
 
     *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
+    html{
+      scroll-behavior:smooth;
+      overflow-x:hidden;
+      max-width:100vw;
+    }
 
     section[id],
     [id="about"]{
@@ -109,7 +112,6 @@
         to{opacity:1; transform:none;}
       }
 
-      /* лёгкое парение звездочек */
       .brand .spark,
       .pill .spark,
       .star-bullet{
@@ -122,7 +124,6 @@
         50%{opacity:.6; transform:scale(.85)}
       }
 
-      /* пульсация seal — transform3d для GPU */
       .seal{
         animation:sealFloat 6s ease-in-out infinite;
         will-change:transform;
@@ -132,7 +133,6 @@
         50%    {transform:translate3d(0,-8px,0)}
       }
 
-      /* mentor note качается */
       .mentor-note{
         animation:mentorSway 5s ease-in-out infinite;
         will-change:transform;
@@ -142,7 +142,6 @@
         50%    {transform:rotate(-3deg)}
       }
 
-      /* cta иконки декоративные — парят */
       .cta::after{
         animation:float 6s ease-in-out infinite;
       }
@@ -155,7 +154,10 @@
       }
     }
     /* ============ /SCROLL ANIMATIONS ============ */
+
+    /* ============================================== */
     /* ============ SHIMMER / GLOW BORDERS =========== */
+    /* ============================================== */
     @keyframes shimmerSweep{
       0%  {transform:translate3d(-120%,0,0) skewX(-18deg)}
       100%{transform:translate3d(220%,0,0) skewX(-18deg)}
@@ -171,15 +173,6 @@
     .contact-card,
     .cta-contact{
       position:relative;
-    }
-
-    .work-card::before,
-    .lesson-card::before,
-    .vpack::after,
-    .exam-card::before,
-    .benefits-card::before,
-    .section-card::before,
-    .review-card::before{
     }
 
     .work-card,
@@ -237,7 +230,10 @@
       50%    {opacity:.7}
     }
     /* ============ /SHIMMER / GLOW BORDERS ============ */
+
+    /* ============================================== */
     /* ============ SCROLL PROGRESS BAR ============== */
+    /* ============================================== */
     .scroll-progress{
       position:fixed;
       top:0;
@@ -268,7 +264,9 @@
       to  {background-position:-200% 0}
     }
 
+    /* ============================================== */
     /* ============ TILT 3D ========================== */
+    /* ============================================== */
     .tilt-wrap{
       transform-style:preserve-3d;
       transition:transform .25s cubic-bezier(.2,.8,.2,1);
@@ -279,7 +277,6 @@
       transform:translateZ(0);
     }
 
-    /* Магнитные кнопки */
     .btn{
       will-change:transform;
     }
@@ -290,7 +287,9 @@
     }
     /* ============ /TILT / MAGNET ============ */
 
+    /* ============================================== */
     /* ============ CURSOR GLOW ====================== */
+    /* ============================================== */
     .cursor-glow{
       position:fixed;
       top:0;
@@ -318,7 +317,9 @@
       .cursor-glow{display:none}
     }
 
+    /* ============================================== */
     /* ============ SPLIT TEXT ======================= */
+    /* ============================================== */
     .split-char{
       display:inline-block;
       vertical-align:baseline;
@@ -356,6 +357,7 @@
       color:var(--text);
       font-family:'Inter', sans-serif;
       font-weight:500;
+      max-width:100vw;
       background:
         radial-gradient(1200px 700px at 15% 8%, rgba(242,184,193,.22), transparent 55%),
         radial-gradient(900px 700px at 88% 15%, rgba(203,132,109,.2), transparent 55%),
@@ -368,7 +370,6 @@
       overflow-x:hidden;
     }
 
-    /* тонкая мягкая сетка */
     body::before{
       content:"";
       position:fixed;
@@ -386,7 +387,6 @@
       z-index:0;
     }
 
-    /* звёздные частицы — slojnost через отдельный элемент */
     .bg-stars{
       position:fixed;
       inset:0;
@@ -411,7 +411,6 @@
       box-shadow:0 0 8px rgba(255,220,228,.9);
     }
 
-    /* плавающие орбы на фоне */
     .bg-orbs{
       position:fixed;
       inset:0;
@@ -447,7 +446,6 @@
       background:radial-gradient(circle, rgba(242,184,193,.4), transparent 65%);
     }
 
-    /* главная содержательная обёртка выше фона */
     header, main, footer{
       position:relative;
       z-index:1;
@@ -562,6 +560,7 @@
       padding:clamp(20px, 3vw, 44px) 0 clamp(20px, 2.5vw, 38px);
       position:relative;
       overflow:hidden;
+      max-width:100vw;
     }
 
     .hero-grid{
@@ -715,6 +714,7 @@
       display:flex;
       align-items:center;
       justify-content:center;
+      max-width:100%;
     }
 
     .portrait-frame{
@@ -1043,7 +1043,9 @@
       font-weight:500;
     }
 
+    /* ============================================== */
     /* ============ SCROLL ANIMATIONS ================ */
+    /* ============================================== */
 
     @media (min-width: 821px){
       html.anim-on [data-anim]{
@@ -1073,7 +1075,6 @@
         transform:none;
       }
 
-      /* hero — анимируем сразу при загрузке */
       html.anim-on .hero [data-anim-hero]{
         opacity:0;
         transform:translateY(30px);
@@ -1254,7 +1255,9 @@
       }
     }
 
+    /* ============================================== */
     /* ============ PRICING — VERTICAL =============== */
+    /* ============================================== */
     .pricing{
       margin-top:clamp(42px, 5vw, 78px);
       position:relative;
@@ -1589,7 +1592,10 @@
     }
 
     /* ============ /PRICING ============ */
+
+    /* ============================================== */
     /* ============ CONTACTS ========================= */
+    /* ============================================== */
     .contacts{
       margin-top:78px;
       position:relative;
@@ -1755,7 +1761,10 @@
       .contact-value{font-size:24px}
     }
     /* ============ /CONTACTS ============ */
+
+    /* ============================================== */
     /* ============ REVIEWS SLIDER =================== */
+    /* ============================================== */
     .reviews{
       margin-top:clamp(42px, 5vw, 78px);
       position:relative;
@@ -2077,6 +2086,7 @@
     .education{
       position:relative;
       margin-top:clamp(42px, 5vw, 78px);
+      overflow:hidden;
     }
 
     .education-title{
@@ -2423,9 +2433,11 @@
 
     .arrow{font-size:18px; line-height:1}
 
-    /* ================ TABLETS ≤1100px ================ */
-    /* =================== RESPONSIVE (fluid) ================== */
+    /* ========================================================= */
+    /* =================== RESPONSIVE ========================== */
+    /* ========================================================= */
 
+    /* === ≤1100px === */
     @media (max-width: 1100px){
       .menu{display:none}
 
@@ -2450,6 +2462,7 @@
       .footer-right{text-align:center}
     }
 
+    /* === ≤900px === */
     @media (max-width: 900px){
       .pricing-side{grid-template-columns:1fr}
 
@@ -2469,6 +2482,7 @@
       }
     }
 
+    /* === ≤700px === */
     @media (max-width: 700px){
       .stats{grid-template-columns:1fr; max-width:100%}
       .cards-4{grid-template-columns:1fr}
@@ -2482,6 +2496,10 @@
         transform:none;
         text-align:center;
       }
+      .seal{
+        bottom:20px;
+        right:8px;
+      }
 
       .center-title{margin-top:clamp(32px, 6vw, 52px)}
       .center-title::before, .center-title::after{opacity:.5}
@@ -2489,7 +2507,10 @@
       .vpack-left, .vpack-center, .vpack-right{padding:16px 18px}
       .vpack.featured::before{
         font-size:9px; letter-spacing:2px;
-        padding:5px 10px; top:12px; right:12px;
+        padding:5px 10px; top:12px; right:auto; left:12px;
+      }
+      .vpack.featured .vpack-left{
+        flex-direction:row-reverse;
       }
 
       .cta-inner{grid-template-columns:1fr}
@@ -2512,16 +2533,19 @@
       .tilt-wrap{transform:none !important}
     }
 
+    /* === ≤480px === */
     @media (max-width: 480px){
       .portrait-frame{max-width:320px}
       .big-ben{display:none}
     }
 
+    /* === ≤360px === */
     @media (max-width: 360px){
       .brand span:not(.spark){display:none}
       .portrait-frame{max-width:290px}
     }
 
+    /* === Landscape mobile === */
     @media (max-height: 500px) and (orientation: landscape) and (max-width:900px){
       .portrait-frame{max-width:280px; height:clamp(280px, 40vw, 400px)}
       .hero{padding:18px 0}
@@ -3119,9 +3143,7 @@
   </footer>
 
 <script>
-  // ===== Safety fallback: гарантированно показать весь контент =====
-  // Триггерится при старте (покажет элементы, уже видимые в viewport)
-  // и через 2.5s как страховка на случай сбоя observer/animations
+  // ===== Safety fallback =====
   function revealAllVisible(){
     const vh = window.innerHeight;
     document.querySelectorAll('[data-anim]:not(.in-view)').forEach(el=>{
@@ -3167,9 +3189,6 @@
     update();
   })();
 
-  // 3D tilt и магнитные кнопки отключены ради производительности.
-  // Они вызывали постоянные mousemove-события и тормозили слабые ноуты.
-
   // ===== Hero name shine overlay =====
   (function(){
     const h1 = document.querySelector('.hero h1');
@@ -3184,9 +3203,7 @@
     h1.appendChild(shine);
   })();
 
-  // Курсор-glow отключён (постоянные mousemove-события тормозили слабые устройства)
-
-  // ===== Split text animation for big headings =====
+  // ===== Split text =====
   (function(){
     const nodes = document.querySelectorAll('[data-split]');
     if (!nodes.length) return;
@@ -3194,7 +3211,6 @@
     nodes.forEach(el=>{
       if (el.dataset.splitDone) return;
 
-      // аккуратно обрабатываем <br>, пробелы и вложенные элементы
       const children = Array.from(el.childNodes);
       el.innerHTML = '';
       let index = 0;
@@ -3217,12 +3233,10 @@
         }
       });
 
-      // отмечаем как готовое только после того, как split завершился
       el.dataset.splitDone = '1';
       el.setAttribute('data-split-ready','');
     });
 
-    // наблюдатель
     function activate(el){
       el.classList.add('in-view');
       el.querySelectorAll('.split-char').forEach(s=>s.classList.add('in'));
@@ -3243,7 +3257,6 @@
     }, { threshold: 0.15, rootMargin: '0px 0px -5% 0px' });
 
     nodes.forEach(el=>{
-      // если уже видно при загрузке — активируем сразу
       const rect = el.getBoundingClientRect();
       if (rect.top < window.innerHeight && rect.bottom > 0){
         activate(el);
@@ -3252,8 +3265,6 @@
       }
     });
   })();
-
-  // Parallax отключён — вызывал лаги при скролле
 
   // ===== Animated counters =====
   (function(){
@@ -3276,7 +3287,6 @@
 
       function tick(now){
         const p = Math.min(1, (now - startTs) / duration);
-        // easeOutCubic
         const eased = 1 - Math.pow(1 - p, 3);
         const val = Math.round(target * eased);
         el.textContent = prefix + val + suffix;
@@ -3302,7 +3312,7 @@
     counters.forEach(el=>io.observe(el));
   })();
 
-  // ===== Inject shine elements into cards =====
+  // ===== Shine elements =====
   (function(){
     const selectors = [
       '.work-card',
@@ -3319,13 +3329,12 @@
       const s = document.createElement('span');
       s.className = 'shine';
       s.setAttribute('aria-hidden','true');
-      // случайная задержка у автоматических бликов, чтобы не синхронно
       s.style.setProperty('--shine-delay', (Math.random() * 5).toFixed(2) + 's');
       el.appendChild(s);
     });
   })();
 
-  // ===== Scroll-triggered animations =====
+  // ===== Scroll-triggered =====
   (function(){
     if (typeof IntersectionObserver === 'undefined') {
       document.querySelectorAll('[data-anim]').forEach(el=>el.classList.add('in-view'));
@@ -3355,7 +3364,7 @@
     const total  = slides.length;
     let index = 0;
 
-    // build ticks
+
     for(let i=0;i<total;i++){
       const b = document.createElement('button');
       b.className = 'rev-tick' + (i===0?' active':'');
@@ -3376,7 +3385,6 @@
         d.classList.toggle('passed', i<index);
       });
       if(progressFill){
-        // fill from 0 (on first) to 100% (on last)
         const pct = total>1 ? (index/(total-1))*100 : 100;
         progressFill.style.width = pct + '%';
       }
@@ -3393,7 +3401,6 @@
     prev.addEventListener('click', ()=>go(index-1));
     next.addEventListener('click', ()=>go(index+1));
 
-    // keyboard
     document.addEventListener('keydown', (e)=>{
       const rect = track.getBoundingClientRect();
       const inView = rect.top < window.innerHeight && rect.bottom > 0;
@@ -3402,7 +3409,6 @@
       if(e.key==='ArrowRight') go(index+1);
     });
 
-    // touch swipe
     let startX = null;
     track.addEventListener('touchstart', e=>{ startX = e.touches[0].clientX; });
     track.addEventListener('touchend',   e=>{
