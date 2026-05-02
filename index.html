@@ -2506,22 +2506,15 @@
       .lessons-grid{grid-template-columns:1fr}
 
       .portrait-frame{max-width:380px}
+      /* печать справа от портрета */
       .seal{
-        position:static;
-        margin:18px auto 0;
-        order:2;
+        right:max(0px, calc(50% - 195px));
+        bottom:60px;
       }
+      /* Your tutor слева от портрета */
       .mentor-note{
-        position:static;
-        display:block;
-        margin:14px auto 0;
-        transform:none;
-        text-align:center;
-        order:3;
-      }
-      .hero-visual{
-        flex-direction:column;
-        align-items:center;
+        left:max(0px, calc(50% - 195px));
+        bottom:60px;
       }
 
       .center-title{margin-top:clamp(32px, 6vw, 52px)}
